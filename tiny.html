@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tinyHeart</title>
+	<style type="text/css">
+		*{margin:0;padding: 0}
+		body{padding-top:10px;}
+		#background{width:800px;height:600px;margin:0 auto;}
+		#allCanvas{width:800px;height:600px;position: relative;}
+		#canvasBefore{position: absolute;left:0;bottom:0;z-index:1;}
+		#canvasAfter{position: absolute;bottom:0;left:0;z-index:0;}
+	</style>
+	<script type="text/javascript" src="JS/main.js"></script>
+	<script type="text/javascript" src="JS/commonFunctions.js"></script>
+	<script type="text/javascript" src="JS/drawBackground.js"></script>
+	<script type="text/javascript" src="JS/ane.js"></script>
+	<script type="text/javascript" src="JS/fruits.js"></script>
+	<script type="text/javascript" src="JS/momFish.js"></script>
+	<script type="text/javascript" src="JS/collsion.js"></script>
+	<script type="text/javascript" src="JS/babyFish.js"></script>
+</head>
+<body onload="game()">
+	<div id="background">
+		<div id="allCanvas">
+			<canvas id="canvasBefore" width="800px" height="600px"></canvas>
+			<canvas id="canvasAfter" width="800px" height="600px"></canvas>
+		</div>
+	</div>
+	
+</body>
+</html>

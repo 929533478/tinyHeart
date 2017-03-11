@@ -6,7 +6,6 @@ function momFruitsCollsion(){
 			//console.log(l);;
 			if(l<900){
 				fruit.dead(i);
-
 			}
 		}
 	}

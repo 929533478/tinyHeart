@@ -1,5 +1,3 @@
-// document.body.onload=game;
-
 var canBefore,canAfter;
 var ctxBefore,ctxAfter;
 
@@ -62,7 +60,7 @@ function gameLoop(){
 	var now = Date.now();
 	deltaTime = now - lastTime;
 	lastTime = now;
-	if(deltaTime>50) deltaTime=50;//限定每帧之间的时间间隔，如果没有，果实可能会非常大。
+	if(deltaTime>40) deltaTime=40;//限定每帧之间的时间间隔，如果没有，果实可能会非常大。
 	//console.log(deltaTime);
 	//
 	drawBackground();

@@ -12,6 +12,8 @@ var fruit;
 var momFish;
 var babyFish;
 
+var data;
+
 var mx,my;//获取鼠标位置；
 
 function game(){
@@ -29,6 +31,9 @@ function init(){
 
 	canAfter=document.getElementById('canvasAfter');//background,ane,fruits
 	ctxAfter=canAfter.getContext('2d');
+
+	ctxBefore.textAlign="center";
+	ctxBefore.font="20px Verdana";
 
 	bgPic.src="src/background.jpg";
 
@@ -49,9 +54,10 @@ function init(){
 	babyFish=new babyObj();
 	babyFish.init();
 
+	data=new dataObj();
+
 	mx=canWidth/2;
 	my=canHeight/2;//不能放在鼠标事件的前面。
-
 }
 
 function gameLoop(){
@@ -73,12 +79,18 @@ function gameLoop(){
 	babyFish.draw();
 
 	momFruitsCollsion();
+	momBabyCollsion();
+
+	data.draw();
+	data.scoreAssessment();
 }
 
 function onMousemove(e){
-	if(e.offSetX||e.layerX){
+	if(!data.gameOver){
+		if(e.offSetX||e.layerX){
 		mx=e.offSetX==undefined?e.layerX:e.offSetX;
 		my=e.offSetY==undefined?e.layerY:e.offSetY;
 		//console.log(mx);
+		}
 	}
 }

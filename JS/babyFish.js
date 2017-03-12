@@ -55,19 +55,19 @@ babyObj.prototype.draw=function(){
 		this.babyEyeTimer%=this.babyEyeInterval;
 
 		if(this.babyEyeCount==0){
-			this.babyEyeInterval+=Math.random()*1500+2000;
+			this.babyEyeInterval+=Math.random()*1500+1500;
 		}else{
 			this.babyEyeInterval=200;
 		}
 	}
 	
 	this.babyBodyTimer+=deltaTime;
-	if(this.babyBodyTimer>300){
+	if(this.babyBodyTimer>200){
 		this.babyBodyCount=this.babyBodyCount+1;
-		this.babyBodyTimer%=300;
+		this.babyBodyTimer%=200;
 		if(this.babyBodyCount>19){
 			this.babyBodyCount=19;
-			//game over;
+			data.gameOver=true;
 		}
 	}
 

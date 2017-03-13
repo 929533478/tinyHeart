@@ -14,6 +14,7 @@ function momFruitsCollsion(){
 					if(fruit.fruitStyle[i]=="blue"){
 						data._double=2;
 					}
+					wave.born(fruit.x[i],fruit.y[i]);
 				}
 			}
 		}
@@ -27,6 +28,7 @@ function momBabyCollsion(){
 			babyFish.babyBodyCount=0;
 			momFish.bigBodyCount=0;
 			data.addScore();
+			halo.born(babyFish.x,babyFish.y);
 		}
 	}	
 }

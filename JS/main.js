@@ -11,8 +11,11 @@ var ane;
 var fruit;
 var momFish;
 var babyFish;
+var dust;
 
 var data;
+var wave;
+var halo;
 
 var mx,my;//获取鼠标位置；
 
@@ -56,6 +59,15 @@ function init(){
 
 	data=new dataObj();
 
+	wave=new waveObj();
+	wave.init();
+
+	halo=new haloObj();
+	halo.init();
+
+	dust=new dustObj();
+	dust.init();
+
 	mx=canWidth/2;
 	my=canHeight/2;//不能放在鼠标事件的前面。
 }
@@ -83,6 +95,11 @@ function gameLoop(){
 
 	data.draw();
 	data.scoreAssessment();
+
+	wave.draw();
+	halo.draw();
+
+	dust.draw();
 }
 
 function onMousemove(e){

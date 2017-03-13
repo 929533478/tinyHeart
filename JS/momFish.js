@@ -1,4 +1,5 @@
 var momObj=function(){
+	this.speed=0.99;
 	this.x;
 	this.y;
 	//this.bigEye=new Image();
@@ -70,8 +71,8 @@ momObj.prototype.draw=function(){
 	var betal=Math.atan2(deltaY,deltaX)+Math.PI;
 	this.angle=lerpAngle(betal,this.angle,0.6);
 
-	this.x=lerpDistance(mx,this.x,0.99);
-	this.y=lerpDistance(my,this.y,0.99);
+	this.x=lerpDistance(mx,this.x,this.speed);
+	this.y=lerpDistance(my,this.y,this.speed);
 	ctxBefore.save();
 	ctxBefore.translate(this.x,this.y);
 	ctxBefore.rotate(this.angle)

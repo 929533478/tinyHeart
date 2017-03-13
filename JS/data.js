@@ -8,6 +8,7 @@ var dataObj=function(){
 	this.scoreCount=1;
 	this.Excellent=1;
 	this.Unbelievable=1;
+	this.time=0;
 }
 
 dataObj.prototype.draw=function(){
@@ -19,13 +20,21 @@ dataObj.prototype.draw=function(){
 	// ctxBefore.fillText("double:"+this._double,canWidth*0.5,canHeight-80);
 	ctxBefore.fillText("SCORE:"+this.score,canWidth*0.5,canHeight-50);
 	if(this.gameOver){
+		this.time+=deltaTime;
+		var _this=this;
 		this.alpha+=deltaTime*0.0005;
 		ctxBefore.fillStyle="rgba(255,255,255,"+this.alpha+")";
 		ctxBefore.fillText("GAMEOVER",canWidth*0.5,canHeight*0.5);
+		if(this.time>2000){
+			ctxBefore.fillText("点击任意处继续...",canWidth*0.5,canHeight*0.5+50);
+			ctxBefore.fillText("最好刷新一下...",canWidth*0.5,canHeight*0.5+100);
+			canBefore.addEventListener("click",onclick,false);
+		}
+		
+		
 	}
 	ctxBefore.restore();
 }
-
 dataObj.prototype.addScore=function(){
 	this.score+=100*this.fruitNum*this._double;
 	this.fruitNum=0;
@@ -77,4 +86,11 @@ dataObj.prototype.drawAssessment=function(text){
 	ctxBefore.fillStyle="rgba(0,255,255,"+this.scoreAlpha+")";
 	ctxBefore.fillText(text,canWidth*0.5,200);
 	ctxBefore.restore();
+}
+
+function onclick(){
+	data.gameOver=false;
+	canBefore.removeEventListener("click",onclick,false);
+	game();
+	momFish.speed=0.995;//控制不住速度呀~为啥啊？
 }
